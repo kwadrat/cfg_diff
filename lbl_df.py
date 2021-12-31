@@ -10,6 +10,7 @@ import unittest
 
 LBL_EQUAL = 'equal'
 LBL_INSERT = 'insert'
+LBL_DELETE = 'delete'
 LBL_REPLACE = 'replace'
 
 
@@ -21,3 +22,4 @@ class TestPreparedLabels(unittest.TestCase):
         self.assertEqual(LBL_EQUAL, 'equal')
         self.assertEqual(LBL_INSERT, 'insert')
         self.assertEqual(LBL_REPLACE, 'replace')
+        self.assertEqual(LBL_DELETE, 'delete')
