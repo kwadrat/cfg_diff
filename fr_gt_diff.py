@@ -185,6 +185,8 @@ class InoxTool(object):
                         save_second = 1
                 elif Lbl == lbl_df.LBL_INSERT:
                     save_second = 1
+                elif Lbl == lbl_df.LBL_DELETE:
+                    save_second = 1
                 if save_second:
                     out_ls.extend(part_b)
                     change_count += 1
