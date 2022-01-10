@@ -14,6 +14,7 @@ import lbl_df
 import src_rng
 import ctx_blck
 import tx_place
+import sngl_prd
 
 
 def form_a(one_line):
@@ -179,7 +180,7 @@ class InoxTool(object):
                             needs_work = 0
                     if needs_work:
                         if self.fwall_sched_one_start <= As <= self.fwall_sched_one_end:
-                            needs_work = 0
+                            needs_work = sngl_prd.process_replace(self.fa, self.fb, As, Ae, Bs, Be)
                     if needs_work:
                         self.show_change(part_a, part_b, verbose)
                         save_second = 1
