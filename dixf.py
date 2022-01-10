@@ -15,6 +15,7 @@ import fr_gt_diff
 import lbl_df
 import src_rng
 import ctx_blck
+import sngl_prd
 
 
 FILE_A_NAME = '--old'
@@ -56,6 +57,7 @@ fast_test_ls = [
     lbl_df.TestPreparedLabels,
     src_rng.TestFocusedLines,
     ctx_blck.TestContextBlock,
+    sngl_prd.TestSinglePeriod,
     ]
 
 
