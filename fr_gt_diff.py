@@ -182,7 +182,7 @@ class InoxTool(object):
                     if needs_work:
                         if self.vpn_cert_ca_start <= As <= self.vpn_cert_ca_end:
                             needs_work = 0
-                    if needs_work:
+                    if needs_work and self.fwall_sched_one_start is not None and self.fwall_sched_one_end is not None:
                         if self.fwall_sched_one_start <= As <= self.fwall_sched_one_end:
                             needs_work = sngl_prd.process_replace(self.fa, self.fb, As, Ae, Bs, Be)
                     if needs_work:
