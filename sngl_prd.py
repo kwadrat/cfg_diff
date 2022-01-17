@@ -17,28 +17,6 @@ def both_starts(a_txt, b_txt, common_txt):
     return result
 
 
-def process_replace(fa, fb, As, Ae, Bs, Be):
-    needs_work = 1
-    delta_a = Ae - As
-    if delta_a == Be - Bs:
-        diff_cnt = 0
-        suspicious_change = 0
-        for i in range(delta_a):
-            part_a = fa[As + i]
-            part_b = fb[Bs + i]
-            if part_a != part_b:
-                diff_cnt += 1
-                if both_starts(part_a, part_b, tx_place.sta_8_tement):
-                    pass
-                elif both_starts(part_a, part_b, tx_place.sta_7_tement):
-                    pass
-                else:
-                    suspicious_change = 1
-        if diff_cnt <= 2 and not suspicious_change:
-            needs_work = 0
-    return needs_work
-
-
 class MultiReplacer(object):
     def __init__(self):
         '''

@@ -138,6 +138,7 @@ class InoxTool(object):
         '''
         InoxTool:
         '''
+        multi_replacer = sngl_prd.MultiReplacer()
         line_acceptor = src_rng.LineAcceptor(focus_in)
         seq_mtch = get_matcher(self.fa, self.fb)
         one_gen = seq_mtch.get_opcodes()
@@ -186,7 +187,7 @@ class InoxTool(object):
                             needs_work = 0
                     if needs_work and self.fwall_sched_one_start is not None and self.fwall_sched_one_end is not None:
                         if self.fwall_sched_one_start <= As <= self.fwall_sched_one_end:
-                            needs_work = sngl_prd.process_replace(self.fa, self.fb, As, Ae, Bs, Be)
+                            needs_work = multi_replacer.process_replace(self.fa, self.fb, As, Ae, Bs, Be)
                     if needs_work:
                         self.show_change(part_a, part_b, verbose)
                         save_second = 1
