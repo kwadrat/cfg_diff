@@ -79,31 +79,26 @@ class InoxTool(object):
         '''
         InoxTool:
         '''
-        result = ctx_blck.dtct_blk(tx_place.sta_2_tement, tx_place.sta_1_tement, self.fa)
         (
             self.ca_cert_start,
             self.ca_cert_end,
-            ) = result
-        result = ctx_blck.dtct_blk(tx_place.sta_3_tement, tx_place.sta_1_tement, self.fa)
+            ) = ctx_blck.dtct_blk(tx_place.sta_2_tement, tx_place.sta_1_tement, self.fa)
         (
             self.ssh_local_key_start,
             self.ssh_local_key_end,
-            ) = result
-        result = ctx_blck.dtct_blk(tx_place.sta_4_tement, tx_place.sta_1_tement, self.fa)
+            ) = ctx_blck.dtct_blk(tx_place.sta_3_tement, tx_place.sta_1_tement, self.fa)
         (
             self.vpn_cert_local_start,
             self.vpn_cert_local_end,
-            ) = result
-        result = ctx_blck.dtct_blk(tx_place.sta_5_tement, tx_place.sta_1_tement, self.fa)
+            ) = ctx_blck.dtct_blk(tx_place.sta_4_tement, tx_place.sta_1_tement, self.fa)
         (
             self.vpn_cert_ca_start,
             self.vpn_cert_ca_end,
-            ) = result
-        result = ctx_blck.dtct_blk(tx_place.sta_6_tement, tx_place.sta_1_tement, self.fa)
+            ) = ctx_blck.dtct_blk(tx_place.sta_5_tement, tx_place.sta_1_tement, self.fa)
         (
             self.fwall_sched_one_start,
             self.fwall_sched_one_end,
-            ) = result
+            ) = ctx_blck.dtct_blk(tx_place.sta_6_tement, tx_place.sta_1_tement, self.fa)
 
     def take_lists(self, a_ls, b_ls):
         '''
