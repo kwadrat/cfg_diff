@@ -37,6 +37,10 @@ def form_e(one_line):
     return one_line.strip().startswith('set password2 ENC')
 
 
+def form_f(one_line):
+    return one_line.strip().startswith('set passphrase ENC')
+
+
 def shorten(one_text, max_len):
     if max_len:
         result = one_text[:max_len]
@@ -215,6 +219,7 @@ class TestDiffEngine(unittest.TestCase):
         self.assertEqual(form_c('set passwd ENC'), 1)
         self.assertEqual(form_d('#conf_file_ver'), 1)
         self.assertEqual(form_e('set password2 ENC'), 1)
+        self.assertEqual(form_f('set passphrase ENC'), 1)
 
     def test_in_another_form(self):
         '''
