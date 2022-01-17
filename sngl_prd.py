@@ -18,10 +18,17 @@ def both_starts(a_txt, b_txt, common_txt):
 
 
 class MultiReplacer(object):
-    def __init__(self):
+    def __init__(self, good_ls=None):
         '''
         MultiReplacer:
         '''
+        if good_ls is None:
+            self.good_ls = [
+                tx_place.sta_8_tement,
+                tx_place.sta_7_tement,
+                ]
+        else:
+            self.good_ls = good_ls
 
     def process_replace(self, fa, fb, As, Ae, Bs, Be):
         '''
@@ -37,11 +44,7 @@ class MultiReplacer(object):
                 part_b = fb[Bs + i]
                 if part_a != part_b:
                     diff_cnt += 1
-                    if both_starts(part_a, part_b, tx_place.sta_8_tement):
-                        pass
-                    elif both_starts(part_a, part_b, tx_place.sta_7_tement):
-                        pass
-                    else:
+                    if not any(map(lambda x: both_starts(part_a, part_b, x), self.good_ls)):
                         suspicious_change = 1
             if diff_cnt <= 2 and not suspicious_change:
                 needs_work = 0
