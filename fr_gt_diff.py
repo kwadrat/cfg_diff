@@ -100,10 +100,14 @@ class InoxTool(object):
             self.vpn_cert_ca_end,
             ) = result
         result = ctx_blck.dtct_blk(tx_place.sta_6_tement, tx_place.sta_1_tement, self.fa)
-        (
-            self.fwall_sched_one_start,
-            self.fwall_sched_one_end,
-            ) = result
+        if result is None:
+            self.fwall_sched_one_start = None
+            self.fwall_sched_one_end = None
+        else:
+            (
+                self.fwall_sched_one_start,
+                self.fwall_sched_one_end,
+                ) = result
 
     def take_lists(self, a_ls, b_ls):
         '''
