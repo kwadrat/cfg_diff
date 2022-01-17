@@ -9,7 +9,7 @@ import unittest
 
 
 def dtct_blk(marker_start, marker_end, line_ls):
-    result = None
+    result = (None, None)
     if line_ls:
         try:
             first_index = line_ls.index(marker_start)
@@ -25,11 +25,11 @@ class TestContextBlock(unittest.TestCase):
         '''
         TestContextBlock:
         '''
-        self.assertEqual(dtct_blk('a', 'b', []), None)
+        self.assertEqual(dtct_blk('a', 'b', []), (None, None))
         self.assertEqual(dtct_blk('a', 'b', ['a', 'b']), (0, 1))
         self.assertEqual(dtct_blk('a', 'b', ['a', 'c', 'b']), (0, 2))
         self.assertEqual(dtct_blk('a', 'b', ['d', 'a', 'c', 'b']), (1, 3))
         self.assertEqual(dtct_blk('a', 'b', ['d', 'a', 'c', 'b', 'e']), (1, 3))
         self.assertEqual(dtct_blk('a', 'b', ['b', 'd', 'a', 'c', 'b', 'e']), (2, 4))
-        self.assertEqual(dtct_blk('a', 'b', ['b', 'd', 'c', 'b', 'e']), None)
-        self.assertEqual(dtct_blk('a', 'b', ['b', 'd', 'a', 'c', 'e']), None)
+        self.assertEqual(dtct_blk('a', 'b', ['b', 'd', 'c', 'b', 'e']), (None, None))
+        self.assertEqual(dtct_blk('a', 'b', ['b', 'd', 'a', 'c', 'e']), (None, None))
