@@ -169,6 +169,8 @@ class InoxTool(object):
                             needs_work = 0
                         if form_e(part_a[0]) and form_e(part_b[0]):
                             needs_work = 0
+                        if form_f(part_a[0]) and form_f(part_b[0]):
+                            needs_work = 0
                     if needs_work:
                         if self.ca_cert_start <= As <= self.ca_cert_end:
                             needs_work = 0
