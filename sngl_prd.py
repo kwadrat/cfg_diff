@@ -75,37 +75,40 @@ class TestSinglePeriod(unittest.TestCase):
         '''
         TestSinglePeriod:
         '''
+        multi_replacer = MultiReplacer()
         fa = []
         fb = []
         As = 0
         Ae = 0
         Bs = 0
         Be = 0
-        self.assertEqual(process_replace(fa, fb, As, Ae, Bs, Be), 0)
+        self.assertEqual(multi_replacer.process_replace(fa, fb, As, Ae, Bs, Be), 0)
 
     def test_too_many_differences(self):
         '''
         TestSinglePeriod:
         '''
+        multi_replacer = MultiReplacer()
         fa = ['a', 'b']
         fb = ['c', 'd']
         As = 0
         Ae = 2
         Bs = 0
         Be = 2
-        self.assertEqual(process_replace(fa, fb, As, Ae, Bs, Be), 1)
+        self.assertEqual(multi_replacer.process_replace(fa, fb, As, Ae, Bs, Be), 1)
 
     def test_wrong_change(self):
         '''
         TestSinglePeriod:
         '''
+        multi_replacer = MultiReplacer()
         fa = ['a', 'b']
         fb = ['c', 'b']
         As = 0
         Ae = 2
         Bs = 0
         Be = 2
-        self.assertEqual(process_replace(fa, fb, As, Ae, Bs, Be), 1)
+        self.assertEqual(multi_replacer.process_replace(fa, fb, As, Ae, Bs, Be), 1)
 
     def test_common_prefix(self):
         '''
