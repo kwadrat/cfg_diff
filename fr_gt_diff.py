@@ -108,6 +108,10 @@ class InoxTool(object):
             self.wifi_vap_start,
             self.wifi_vap_end,
             ) = ctx_blck.dtct_blk(tx_place.sta_9_tement, tx_place.sta_1_tement, self.fa)
+        (
+            self.sstm_snmp_start,
+            self.sstm_snmp_end,
+            ) = ctx_blck.dtct_blk(tx_place.sta_10_tement, tx_place.sta_1_tement, self.fa)
 
     def take_lists(self, a_ls, b_ls):
         '''
