@@ -99,6 +99,10 @@ class InoxTool(object):
             self.fwall_sched_one_start,
             self.fwall_sched_one_end,
             ) = ctx_blck.dtct_blk(tx_place.sta_6_tement, tx_place.sta_1_tement, self.fa)
+        (
+            self.wifi_vap_start,
+            self.wifi_vap_end,
+            ) = ctx_blck.dtct_blk(tx_place.sta_9_tement, tx_place.sta_1_tement, self.fa)
 
     def take_lists(self, a_ls, b_ls):
         '''
