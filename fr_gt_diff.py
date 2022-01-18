@@ -133,6 +133,7 @@ class InoxTool(object):
         self.fa = a_ls
         self.fb = b_ls
         self.extract_sections()
+        self.calculate_conditions()
 
     def show_change(self, part_a, part_b, verbose):
         '''
@@ -206,10 +207,10 @@ class InoxTool(object):
                     if needs_work:
                         if self.vpn_cert_ca_start <= As <= self.vpn_cert_ca_end:
                             needs_work = 0
-                    if needs_work and self.fwall_sched_one_start is not None and self.fwall_sched_one_end is not None:
+                    if needs_work and self.fwall_sched_one_start_enabled:
                         if self.fwall_sched_one_start <= As <= self.fwall_sched_one_end:
                             needs_work = multi_replacer.process_replace(self.fa, self.fb, As, Ae, Bs, Be)
-                    if needs_work and self.sstm_snmp_start is not None and self.sstm_snmp_end is not None:
+                    if needs_work and self.sstm_snmp_enabled:
                         if self.sstm_snmp_start <= As <= self.sstm_snmp_end:
                             needs_work = snmp_rplcr.process_replace(self.fa, self.fb, As, Ae, Bs, Be)
                     if needs_work:
