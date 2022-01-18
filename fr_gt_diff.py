@@ -214,7 +214,9 @@ class InoxTool(object):
                     if needs_work and self.vpn_cert_local_enabled:
                         if self.vpn_cert_local_a_start <= As <= self.vpn_cert_local_a_end:
                             if self.vpn_cert_local_b_start <= Bs <= self.vpn_cert_local_b_end:
-                                needs_work = 0
+                                if self.vpn_cert_local_a_start <= Ae <= self.vpn_cert_local_a_end:
+                                    if self.vpn_cert_local_b_start <= Be <= self.vpn_cert_local_b_end:
+                                        needs_work = 0
                     if needs_work:
                         if self.vpn_cert_ca_start <= As <= self.vpn_cert_ca_end:
                             needs_work = 0
