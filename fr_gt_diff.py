@@ -125,6 +125,10 @@ class InoxTool(object):
             self.sstm_snmp_start,
             self.sstm_snmp_end,
             )
+        self.vpn_cert_local_enabled = None not in (
+            self.vpn_cert_local_start,
+            self.vpn_cert_local_end,
+            )
 
     def take_lists(self, a_ls, b_ls):
         '''
@@ -201,7 +205,7 @@ class InoxTool(object):
                     if needs_work:
                         if self.ssh_local_key_start <= As <= self.ssh_local_key_end:
                             needs_work = 0
-                    if needs_work:
+                    if needs_work and self.vpn_cert_local_enabled:
                         if self.vpn_cert_local_start <= As <= self.vpn_cert_local_end:
                             needs_work = 0
                     if needs_work:
