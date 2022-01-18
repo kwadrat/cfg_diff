@@ -113,6 +113,19 @@ class InoxTool(object):
             self.sstm_snmp_end,
             ) = ctx_blck.dtct_blk(tx_place.sta_10_tement, tx_place.sta_1_tement, self.fa)
 
+    def calculate_conditions(self):
+        '''
+        InoxTool:
+        '''
+        self.fwall_sched_one_start_enabled = None not in (
+            self.fwall_sched_one_start,
+            self.fwall_sched_one_end,
+            )
+        self.sstm_snmp_enabled = None not in (
+            self.sstm_snmp_start,
+            self.sstm_snmp_end,
+            )
+
     def take_lists(self, a_ls, b_ls):
         '''
         InoxTool:
