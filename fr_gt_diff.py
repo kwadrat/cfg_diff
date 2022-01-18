@@ -92,9 +92,13 @@ class InoxTool(object):
             self.ssh_local_key_end,
             ) = ctx_blck.dtct_blk(tx_place.sta_3_tement, tx_place.sta_1_tement, self.fa)
         (
-            self.vpn_cert_local_start,
-            self.vpn_cert_local_end,
+            self.vpn_cert_local_a_start,
+            self.vpn_cert_local_a_end,
             ) = ctx_blck.dtct_blk(tx_place.sta_4_tement, tx_place.sta_1_tement, self.fa)
+        (
+            self.vpn_cert_local_b_start,
+            self.vpn_cert_local_b_end,
+            ) = ctx_blck.dtct_blk(tx_place.sta_4_tement, tx_place.sta_1_tement, self.fb)
         (
             self.vpn_cert_ca_start,
             self.vpn_cert_ca_end,
@@ -126,8 +130,10 @@ class InoxTool(object):
             self.sstm_snmp_end,
             )
         self.vpn_cert_local_enabled = None not in (
-            self.vpn_cert_local_start,
-            self.vpn_cert_local_end,
+            self.vpn_cert_local_a_start,
+            self.vpn_cert_local_a_end,
+            self.vpn_cert_local_b_start,
+            self.vpn_cert_local_b_end,
             )
 
     def take_lists(self, a_ls, b_ls):
@@ -206,8 +212,9 @@ class InoxTool(object):
                         if self.ssh_local_key_start <= As <= self.ssh_local_key_end:
                             needs_work = 0
                     if needs_work and self.vpn_cert_local_enabled:
-                        if self.vpn_cert_local_start <= As <= self.vpn_cert_local_end:
-                            needs_work = 0
+                        if self.vpn_cert_local_a_start <= As <= self.vpn_cert_local_a_end:
+                            if self.vpn_cert_local_b_start <= Bs <= self.vpn_cert_local_b_end:
+                                needs_work = 0
                     if needs_work:
                         if self.vpn_cert_ca_start <= As <= self.vpn_cert_ca_end:
                             needs_work = 0
