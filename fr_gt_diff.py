@@ -81,6 +81,10 @@ def save_output(name_c, out_ls):
         fd_out.close()
 
 
+def is_valid(a, b):
+    return None not in (a, b)
+
+
 class InoxTool(object):
     def __init__(self):
         '''
@@ -289,3 +293,11 @@ class TestDiffEngine(unittest.TestCase):
         obj.analyze_differences(
             display_summary=0,
             )
+
+    def test_both_valid(self):
+        '''
+        TestDiffEngine:
+        '''
+        self.assertEqual(is_valid(2, 3), 1)
+        self.assertEqual(is_valid(None, 3), 0)
+        self.assertEqual(is_valid(4, None), 0)
