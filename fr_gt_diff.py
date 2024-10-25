@@ -304,3 +304,4 @@ class TestDiffEngine(unittest.TestCase):
         self.assertEqual(is_valid(2, 3), 1)
         self.assertEqual(is_valid(None, 3), 0)
         self.assertEqual(is_valid(4, None), 0)
+        self.assertEqual(is_valid(4, 5, None), 0)
