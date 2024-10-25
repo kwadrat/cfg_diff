@@ -134,15 +134,15 @@ class InoxTool(object):
         '''
         InoxTool:
         '''
-        self.fwall_sched_one_start_enabled = None not in (
+        self.fwall_sched_one_start_enabled = is_valid(
             self.fwall_sched_one_start,
             self.fwall_sched_one_end,
             )
-        self.sstm_snmp_enabled = None not in (
+        self.sstm_snmp_enabled = is_valid(
             self.sstm_snmp_start,
             self.sstm_snmp_end,
             )
-        self.vpn_cert_local_enabled = None not in (
+        self.vpn_cert_local_enabled = is_valid(
             self.vpn_cert_local_a_start,
             self.vpn_cert_local_a_end,
             self.vpn_cert_local_b_start,
