@@ -219,11 +219,13 @@ class InoxTool(object):
                         if form_f(part_a[0]) and form_f(part_b[0]):
                             needs_work = 0
                     if needs_work:
-                        if self.ca_cert_start <= As <= self.ca_cert_end:
-                            needs_work = 0
+                        if is_valid(self.ca_cert_start, self.ca_cert_end):
+                            if self.ca_cert_start <= As <= self.ca_cert_end:
+                                needs_work = 0
                     if needs_work:
-                        if self.ssh_local_key_start <= As <= self.ssh_local_key_end:
-                            needs_work = 0
+                        if is_valid(self.ssh_local_key_start, self.ssh_local_key_end):
+                            if self.ssh_local_key_start <= As <= self.ssh_local_key_end:
+                                needs_work = 0
                     if needs_work and self.vpn_cert_local_enabled:
                         if self.vpn_cert_local_a_start <= As <= self.vpn_cert_local_a_end:
                             if self.vpn_cert_local_b_start <= Bs <= self.vpn_cert_local_b_end:
@@ -231,8 +233,9 @@ class InoxTool(object):
                                     if self.vpn_cert_local_b_start <= Be <= self.vpn_cert_local_b_end:
                                         needs_work = 0
                     if needs_work:
-                        if self.vpn_cert_ca_start <= As <= self.vpn_cert_ca_end:
-                            needs_work = 0
+                        if is_valid(self.vpn_cert_ca_start, self.vpn_cert_ca_end):
+                            if self.vpn_cert_ca_start <= As <= self.vpn_cert_ca_end:
+                                needs_work = 0
                     if needs_work and self.fwall_sched_one_start_enabled:
                         if self.fwall_sched_one_start <= As <= self.fwall_sched_one_end:
                             needs_work = multi_replacer.process_replace(self.fa, self.fb, As, Ae, Bs, Be)
