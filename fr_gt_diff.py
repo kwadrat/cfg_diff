@@ -249,12 +249,7 @@ class InoxTool(object):
                     out_ls.extend(part_a)
         if display_summary:
             print('Change count: %d' % change_count)
-        if name_c is not None:
-            all_txt = ''.join(out_ls)
-            fd = open(name_c, 'w')
-            fd.write(all_txt)
-            print("Written %d bytes to '%s'" % (len(all_txt), name_c))
-            fd.close()
+        save_output(name_c, out_ls)
 
 
 class TestDiffEngine(unittest.TestCase):
