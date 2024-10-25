@@ -72,6 +72,15 @@ def get_matcher(fa, fb):
     return seq_mtch
 
 
+def save_output(name_c, out_ls):
+    if name_c is not None:
+        all_txt = ''.join(out_ls)
+        fd_out = open(name_c, 'w')
+        fd_out.write(all_txt)
+        print("Written %d bytes to '%s'" % (len(all_txt), name_c))
+        fd_out.close()
+
+
 class InoxTool(object):
     def __init__(self):
         '''
