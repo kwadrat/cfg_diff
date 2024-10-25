@@ -81,8 +81,8 @@ def save_output(name_c, out_ls):
         fd_out.close()
 
 
-def is_valid(a, b):
-    return None not in (a, b)
+def is_valid(*arg_ls):
+    return None not in arg_ls
 
 
 class InoxTool(object):
