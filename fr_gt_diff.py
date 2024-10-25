@@ -45,6 +45,10 @@ def form_g(one_line):
     return one_line.strip().startswith('set store-passphrase ENC')
 
 
+def form_h(one_line):
+    return one_line.strip().startswith('set logon-password ENC')
+
+
 def shorten(one_text, max_len):
     if max_len:
         result = one_text[:max_len]
@@ -223,6 +227,8 @@ class InoxTool(object):
                         if form_f(part_a[0]) and form_f(part_b[0]):
                             needs_work = 0
                         if form_g(part_a[0]) and form_g(part_b[0]):
+                            needs_work = 0
+                        if form_h(part_a[0]) and form_h(part_b[0]):
                             needs_work = 0
                     if needs_work and is_valid(self.ca_cert_start, self.ca_cert_end):
                         if self.ca_cert_start <= As <= self.ca_cert_end:
